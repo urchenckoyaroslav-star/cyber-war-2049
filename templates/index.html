@@ -9,16 +9,7 @@
     <meta name="google-site-verification" content="NcPCoxIiX6hCaFiE8cBOAQKZ3eZA_0zXFO9a2HX9foU" />
     
     <title>CYBER WARFARE 2049 | Musk vs Zuck | Crypto Tug of War</title>
-    <meta name="description" content="Epic Cyberpunk Crypto Battle! Elon Musk vs Mark Zuckerberg. Crypto Bulls vs Bears. Vote with USDT (BEP20) to move the neon flag in real-time. Join the ultimate Web3 tug of war!">
-    <meta name="keywords" content="Elon Musk vs Mark Zuckerberg, crypto battle, USDT BEP20, Binance Smart Chain, crypto tug of war, Bulls vs Bears crypto, Web3 interactive game, Elon Musk crypto, Zuckerberg meta, cyberpunk game, быки против медведей крипта, перетягивание каната криптовалюта, донат USDT BEP20, Mortal Kombat crypto">
-    <meta name="author" content="Orcas Sentinel">
-    <meta name="robots" content="index, follow, max-image-preview:large">
     
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="CYBER WARFARE 2049 | Epic Crypto Battle">
-    <meta property="og:description" content="Vote with USDT (BEP20)! Musk vs Zuck. Bulls vs Bears. Who will win the cyberpunk tug of war? Join the blockchain arena.">
-    <meta property="og:image" content="https://cryptologos.cc/logos/tether-usdt-logo.png">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700;900&display=swap" rel="stylesheet">
     
@@ -47,6 +38,63 @@
             50% { text-shadow: -2px 0 var(--br-teal), 2px 0 var(--br-orange); }
             100% { text-shadow: 2px 0 var(--br-pink), -2px 0 var(--br-teal); }
         }
+
+        /* ЕФЕКТ РАМКИ ТА ПІДЙОМУ */
+        .wallet-container {
+            position: relative;
+            width: 100%;
+            padding: 2px; /* Простір для рамки */
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .wallet-container:hover {
+            transform: translateY(-8px); /* Піднімаємо вгору */
+        }
+
+        /* Неонова лінія, що бігає */
+        .wallet-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent, 
+                var(--br-green), 
+                transparent 30%
+            );
+            animation: rotate-neon 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .wallet-container:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes rotate-neon {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Внутрішній контент кнопки */
+        .copy-btn {
+            position: relative;
+            z-index: 1;
+            background: #0a0a0f;
+            width: 100%;
+            height: 100%;
+            border-radius: 6px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* РЕШТА СТИЛІВ */
         .cyber-panel {
             background: rgba(10, 10, 15, 0.8); border: 1px solid rgba(0, 240, 255, 0.2);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), inset 0 0 10px rgba(0, 240, 255, 0.05);
@@ -58,8 +106,6 @@
         .victory-label { position: absolute; top: -40px; left: 50%; transform: translateX(-50%); font-family: 'Orbitron', sans-serif; color: var(--br-red); font-weight: 900; letter-spacing: 5px; text-shadow: 0 0 10px var(--br-red); font-size: 1.5rem; }
         .character-avatar { font-size: 80px; filter: drop-shadow(0 0 20px currentColor); animation: float 4s infinite ease-in-out; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        .copy-btn { background: rgba(0,0,0,0.6); border: 1px solid currentColor; transition: all 0.3s; }
-        .copy-btn:hover { background: currentColor; color: #000 !important; box-shadow: 0 0 15px currentColor; }
         .music-btn { border: 1px solid var(--br-teal); color: var(--br-teal); padding: 8px 16px; font-weight: bold; font-family: 'Orbitron', sans-serif; transition: all 0.3s; background: rgba(0,0,0,0.5); }
         .music-btn:hover { background: var(--br-teal); color: #000; box-shadow: 0 0 15px var(--br-teal); }
         .toast { opacity: 0; transition: 0.3s; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; }
@@ -75,81 +121,91 @@
     <div class="scanlines"></div>
 
     <header class="w-full max-w-6xl flex flex-col md:flex-row justify-between items-center mb-12">
-        <h1 class="font-cyber text-4xl md:text-5xl font-black text-white glitch-text uppercase">
-            CYBER WARFARE 2049
-        </h1>
+        <h1 class="font-cyber text-4xl md:text-5xl font-black text-white glitch-text uppercase">CYBER WARFARE 2049</h1>
         <div class="mt-4 md:mt-0">
             <button id="music-toggle" class="music-btn rounded" onclick="toggleMusic()">🎵 PLAY AUDIO</button>
         </div>
     </header>
 
     <p class="max-w-3xl text-center text-gray-400 text-lg md:text-xl mb-12">
-        Your USDT dictates the future. Send crypto to your leader's wallet. The flag moves towards the largest balance. Welcome to the ultimate Cyberpunk Tug of War.
+        Your USDT dictates the future. Send crypto to your leader's wallet. The flag moves towards the largest balance.
     </p>
 
-    <div class="w-full max-w-6xl cyber-panel rounded-2xl p-6 md:p-10 mb-16 relative overflow-hidden border-t-4 border-t-pink-500">
+    <div class="w-full max-w-6xl cyber-panel rounded-2xl p-6 md:p-10 mb-16 relative border-t-4 border-t-pink-500">
         <h2 class="text-center font-cyber text-2xl text-pink-500 tracking-widest mb-8 uppercase">ARENA I: TECH TITANS</h2>
         <div class="flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex flex-col items-center w-full md:w-1/3 text-orange-400">
                 <div class="character-avatar" style="color: var(--br-orange)">🚀</div>
                 <h3 class="font-cyber text-2xl font-bold mt-2 text-white">ELON MUSK</h3>
-                <p class="text-sm text-gray-400 mb-4 uppercase">Mars Emperor</p>
-                <div class="text-3xl font-bold mb-2 font-cyber text-white">$<span id="musk-score">0.00</span></div>
-                <button class="copy-btn w-full py-2 px-4 rounded font-mono text-xs flex justify-between items-center" onclick="copyWallet('0x6d60e0e6b581aa27fde2608ad55d86e67b705573')">
-                    <span class="truncate">0x6d60...5573</span>
-                    <span class="text-green-400 font-bold ml-2">📋 USDT (BEP20)</span>
-                </button>
+                <div class="text-3xl font-bold mb-4 font-cyber text-white">$<span id="musk-score">0.00</span></div>
+                
+                <div class="wallet-container" onclick="copyWallet('0x6d60e0e6b581aa27fde2608ad55d86e67b705573')">
+                    <div class="copy-btn cursor-pointer">
+                        <span class="truncate font-mono text-xs text-gray-400">0x6d60...5573</span>
+                        <span class="text-green-400 font-bold text-xs ml-2">📋 USDT</span>
+                    </div>
+                </div>
             </div>
+
             <div class="w-full md:w-1/3 rope-container">
                 <div class="victory-label">VICTORY</div>
                 <div class="rope"></div>
                 <div class="flag" id="flag-musk-zuck" style="left: 50%;">🚩</div>
             </div>
+
             <div class="flex flex-col items-center w-full md:w-1/3 text-teal-400">
                 <div class="character-avatar" style="color: var(--br-teal)">🦎</div>
                 <h3 class="font-cyber text-2xl font-bold mt-2 text-white">MARK ZUCK</h3>
-                <p class="text-sm text-gray-400 mb-4 uppercase">Metaverse Lizard</p>
-                <div class="text-3xl font-bold mb-2 font-cyber text-white">$<span id="zuck-score">0.00</span></div>
-                <button class="copy-btn w-full py-2 px-4 rounded font-mono text-xs flex justify-between items-center" onclick="copyWallet('0x5a289561bf0bbd6b6748d8dcda2e37ef8d6d120a')">
-                    <span class="truncate">0x5a28...120a</span>
-                    <span class="text-green-400 font-bold ml-2">📋 USDT (BEP20)</span>
-                </button>
+                <div class="text-3xl font-bold mb-4 font-cyber text-white">$<span id="zuck-score">0.00</span></div>
+                
+                <div class="wallet-container" onclick="copyWallet('0x5a289561bf0bbd6b6748d8dcda2e37ef8d6d120a')">
+                    <div class="copy-btn cursor-pointer">
+                        <span class="truncate font-mono text-xs text-gray-400">0x5a28...120a</span>
+                        <span class="text-green-400 font-bold text-xs ml-2">📋 USDT</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="w-full max-w-6xl cyber-panel rounded-2xl p-6 md:p-10 relative overflow-hidden border-t-4 border-t-teal-500">
+    <div class="w-full max-w-6xl cyber-panel rounded-2xl p-6 md:p-10 relative border-t-4 border-t-teal-500">
         <h2 class="text-center font-cyber text-2xl text-teal-400 tracking-widest mb-8 uppercase">ARENA II: MARKET FORCES</h2>
         <div class="flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex flex-col items-center w-full md:w-1/3 text-green-400">
                 <div class="character-avatar" style="color: var(--br-green)">🐂</div>
                 <h3 class="font-cyber text-2xl font-bold mt-2 text-white">CRYPTO BULLS</h3>
-                <p class="text-sm text-gray-400 mb-4 uppercase">Up Only Syndicate</p>
-                <div class="text-3xl font-bold mb-2 font-cyber text-white">$<span id="bulls-score">0.00</span></div>
-                <button class="copy-btn w-full py-2 px-4 rounded font-mono text-xs flex justify-between items-center" onclick="copyWallet('0xa4871e3de547f04b2130b7163e4e426300bf6634')">
-                    <span class="truncate">0xa487...6634</span>
-                    <span class="text-green-400 font-bold ml-2">📋 USDT (BEP20)</span>
-                </button>
+                <div class="text-3xl font-bold mb-4 font-cyber text-white">$<span id="bulls-score">0.00</span></div>
+                
+                <div class="wallet-container" onclick="copyWallet('0xa4871e3de547f04b2130b7163e4e426300bf6634')">
+                    <div class="copy-btn cursor-pointer">
+                        <span class="truncate font-mono text-xs text-gray-400">0xa487...6634</span>
+                        <span class="text-green-400 font-bold text-xs ml-2">📋 USDT</span>
+                    </div>
+                </div>
             </div>
+
             <div class="w-full md:w-1/3 rope-container">
                 <div class="victory-label">VICTORY</div>
                 <div class="rope"></div>
                 <div class="flag" id="flag-bulls-bears" style="left: 50%;">🚩</div>
             </div>
+
             <div class="flex flex-col items-center w-full md:w-1/3 text-red-500">
                 <div class="character-avatar" style="color: var(--br-red)">🐻</div>
                 <h3 class="font-cyber text-2xl font-bold mt-2 text-white">CRYPTO BEARS</h3>
-                <p class="text-sm text-gray-400 mb-4 uppercase">Short Sellers Cartel</p>
-                <div class="text-3xl font-bold mb-2 font-cyber text-white">$<span id="bears-score">0.00</span></div>
-                <button class="copy-btn w-full py-2 px-4 rounded font-mono text-xs flex justify-between items-center" onclick="copyWallet('0x748f510de5c5c1f89f160b6e557b464e18f09d91')">
-                    <span class="truncate">0x748f...9d91</span>
-                    <span class="text-green-400 font-bold ml-2">📋 USDT (BEP20)</span>
-                </button>
+                <div class="text-3xl font-bold mb-4 font-cyber text-white">$<span id="bears-score">0.00</span></div>
+                
+                <div class="wallet-container" onclick="copyWallet('0x748f510de5c5c1f89f160b6e557b464e18f09d91')">
+                    <div class="copy-btn cursor-pointer">
+                        <span class="truncate font-mono text-xs text-gray-400">0x748f...9d91</span>
+                        <span class="text-green-400 font-bold text-xs ml-2">📋 USDT</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="copy-toast" class="toast bg-white text-black px-6 py-2 rounded font-bold uppercase">COPIED TO CLIPBOARD</div>
+    <div id="copy-toast" class="toast bg-white text-black px-6 py-2 rounded font-bold uppercase">COPIED!</div>
 
     <script>
         const music = document.getElementById('bg-music');
@@ -162,7 +218,7 @@
                 music.play().then(() => {
                     isPlaying = true;
                     musicBtn.innerText = "🔇 MUTE AUDIO";
-                }).catch(e => console.log("Music blocked"));
+                }).catch(e => console.log("Blocked"));
             }
         }, { once: true });
 
