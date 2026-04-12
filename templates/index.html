@@ -6,10 +6,19 @@
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐼</text></svg>">
     
-    <meta name="google-site-verification" content="NcPCoxIiX6hCaFiE8cBOAQKZ3eZA_0zXFO9a2HX9foU" />
+    <meta name="google-site-verification" content="_KwUSSjTUf9_a7zKBkQk0zJrEm_IGE9HJupji9CiMOw" />
     
     <title>CYBER WARFARE 2049 | Musk vs Zuck | Crypto Tug of War</title>
+    <meta name="description" content="Epic Cyberpunk Crypto Battle! Elon Musk vs Mark Zuckerberg. Crypto Bulls vs Bears. Vote with USDT (BEP20) to move the neon flag in real-time. Join the ultimate Web3 tug of war!">
+    <meta name="keywords" content="Elon Musk vs Mark Zuckerberg, crypto battle, USDT BEP20, Binance Smart Chain, crypto tug of war, Bulls vs Bears crypto, Web3 interactive game, Elon Musk crypto, Zuckerberg meta, cyberpunk game, быки против медведей крипта, перетягивание каната криптовалюта, донат USDT BEP20, Mortal Kombat crypto">
+    <meta name="author" content="Orcas Sentinel">
+    <meta name="robots" content="index, follow, max-image-preview:large">
     
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CYBER WARFARE 2049 | Epic Crypto Battle">
+    <meta property="og:description" content="Vote with USDT (BEP20)! Musk vs Zuck. Bulls vs Bears. Who will win the cyberpunk tug of war? Join the blockchain arena.">
+    <meta property="og:image" content="https://cryptologos.cc/logos/tether-usdt-logo.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700;900&display=swap" rel="stylesheet">
     
@@ -39,22 +48,19 @@
             100% { text-shadow: 2px 0 var(--br-pink), -2px 0 var(--br-teal); }
         }
 
-        /* ЕФЕКТ РАМКИ ТА ПІДЙОМУ */
+        /* NEON BORDER & LIFT EFFECT */
         .wallet-container {
             position: relative;
             width: 100%;
-            padding: 2px; /* Простір для рамки */
+            padding: 2px;
             border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s ease;
             background: rgba(0, 0, 0, 0.5);
         }
-
         .wallet-container:hover {
-            transform: translateY(-8px); /* Піднімаємо вгору */
+            transform: translateY(-8px);
         }
-
-        /* Неонова лінія, що бігає */
         .wallet-container::before {
             content: '';
             position: absolute;
@@ -62,26 +68,18 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: conic-gradient(
-                transparent, 
-                var(--br-green), 
-                transparent 30%
-            );
+            background: conic-gradient(transparent, var(--br-green), transparent 30%);
             animation: rotate-neon 4s linear infinite;
             opacity: 0;
             transition: opacity 0.3s;
         }
-
         .wallet-container:hover::before {
             opacity: 1;
         }
-
         @keyframes rotate-neon {
             100% { transform: rotate(360deg); }
         }
-
-        /* Внутрішній контент кнопки */
-        .copy-btn {
+        .copy-btn-inner {
             position: relative;
             z-index: 1;
             background: #0a0a0f;
@@ -94,7 +92,7 @@
             align-items: center;
         }
 
-        /* РЕШТА СТИЛІВ */
+        /* TUG OF WAR UI */
         .cyber-panel {
             background: rgba(10, 10, 15, 0.8); border: 1px solid rgba(0, 240, 255, 0.2);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), inset 0 0 10px rgba(0, 240, 255, 0.05);
@@ -138,28 +136,24 @@
                 <div class="character-avatar" style="color: var(--br-orange)">🚀</div>
                 <h3 class="font-cyber text-2xl font-bold mt-2 text-white">ELON MUSK</h3>
                 <div class="text-3xl font-bold mb-4 font-cyber text-white">$<span id="musk-score">0.00</span></div>
-                
                 <div class="wallet-container" onclick="copyWallet('0x6d60e0e6b581aa27fde2608ad55d86e67b705573')">
-                    <div class="copy-btn cursor-pointer">
+                    <div class="copy-btn-inner cursor-pointer">
                         <span class="truncate font-mono text-xs text-gray-400">0x6d60...5573</span>
                         <span class="text-green-400 font-bold text-xs ml-2">📋 USDT</span>
                     </div>
                 </div>
             </div>
-
             <div class="w-full md:w-1/3 rope-container">
                 <div class="victory-label">VICTORY</div>
                 <div class="rope"></div>
                 <div class="flag" id="flag-musk-zuck" style="left: 50%;">🚩</div>
             </div>
-
             <div class="flex flex-col items-center w-full md:w-1/3 text-teal-400">
                 <div class="character-avatar" style="color: var(--br-teal)">🦎</div>
                 <h3 class="font-cyber text-2xl font-bold mt-2 text-white">MARK ZUCK</h3>
                 <div class="text-3xl font-bold mb-4 font-cyber text-white">$<span id="zuck-score">0.00</span></div>
-                
                 <div class="wallet-container" onclick="copyWallet('0x5a289561bf0bbd6b6748d8dcda2e37ef8d6d120a')">
-                    <div class="copy-btn cursor-pointer">
+                    <div class="copy-btn-inner cursor-pointer">
                         <span class="truncate font-mono text-xs text-gray-400">0x5a28...120a</span>
                         <span class="text-green-400 font-bold text-xs ml-2">📋 USDT</span>
                     </div>
@@ -175,28 +169,24 @@
                 <div class="character-avatar" style="color: var(--br-green)">🐂</div>
                 <h3 class="font-cyber text-2xl font-bold mt-2 text-white">CRYPTO BULLS</h3>
                 <div class="text-3xl font-bold mb-4 font-cyber text-white">$<span id="bulls-score">0.00</span></div>
-                
                 <div class="wallet-container" onclick="copyWallet('0xa4871e3de547f04b2130b7163e4e426300bf6634')">
-                    <div class="copy-btn cursor-pointer">
+                    <div class="copy-btn-inner cursor-pointer">
                         <span class="truncate font-mono text-xs text-gray-400">0xa487...6634</span>
                         <span class="text-green-400 font-bold text-xs ml-2">📋 USDT</span>
                     </div>
                 </div>
             </div>
-
             <div class="w-full md:w-1/3 rope-container">
                 <div class="victory-label">VICTORY</div>
                 <div class="rope"></div>
                 <div class="flag" id="flag-bulls-bears" style="left: 50%;">🚩</div>
             </div>
-
             <div class="flex flex-col items-center w-full md:w-1/3 text-red-500">
                 <div class="character-avatar" style="color: var(--br-red)">🐻</div>
                 <h3 class="font-cyber text-2xl font-bold mt-2 text-white">CRYPTO BEARS</h3>
                 <div class="text-3xl font-bold mb-4 font-cyber text-white">$<span id="bears-score">0.00</span></div>
-                
                 <div class="wallet-container" onclick="copyWallet('0x748f510de5c5c1f89f160b6e557b464e18f09d91')">
-                    <div class="copy-btn cursor-pointer">
+                    <div class="copy-btn-inner cursor-pointer">
                         <span class="truncate font-mono text-xs text-gray-400">0x748f...9d91</span>
                         <span class="text-green-400 font-bold text-xs ml-2">📋 USDT</span>
                     </div>
@@ -215,10 +205,7 @@
         document.body.addEventListener('click', () => {
             if (!isPlaying) {
                 music.volume = 0.5;
-                music.play().then(() => {
-                    isPlaying = true;
-                    musicBtn.innerText = "🔇 MUTE AUDIO";
-                }).catch(e => console.log("Blocked"));
+                music.play().then(() => { isPlaying = true; musicBtn.innerText = "🔇 MUTE AUDIO"; }).catch(e => {});
             }
         }, { once: true });
 
@@ -256,7 +243,6 @@
                 updateFlag('flag-bulls-bears', data.bulls, data.bears);
             } catch (error) {}
         }
-
         setInterval(fetchBalances, 5000);
         fetchBalances();
     </script>
